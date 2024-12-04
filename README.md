@@ -31,32 +31,42 @@ GET /team/8297/furia
 ```json
 {
     "coach": {
-        "flag": "/img/static/flags/30x20/BR.gif",
-        "name": "sidde"
+        "flag": "https://www.hltv.org/img/static/flags/30x20/BR.gif",
+        "nickname": "sidde"
     },
     "hltv_ranking": "#8",
     "image": "https://img-cdn.hltv.org/teamlogo/mvNQc4csFGtxXk5guAh8m1.svg?ixlib=java-2.1.0&s=11e5056829ad5d6c06c5961bbe76d20c",
     "name": "FURIA",
     "players": [
         {
-            "flag": "/img/static/flags/30x20/BR.gif",
-            "nickname": "FalleN"
+            "flag": "https://www.hltv.org/img/static/flags/30x20/BR.gif",
+            "image": "https://img-cdn.hltv.org/playerbodyshot/Wf26SO_o8nvnsLh0AqZXc5.png?ixlib=java-2.1.0&w=400&s=36b7189a4ae7b020d0acb087fd44777a",
+            "nickname": "FalleN",
+            "title": "Gabriel 'FalleN' Toledo"
         },
         {
-            "flag": "/img/static/flags/30x20/BR.gif",
-            "nickname": "chelo"
+            "flag": "https://www.hltv.org/img/static/flags/30x20/BR.gif",
+            "image": "https://img-cdn.hltv.org/playerbodyshot/1UmLZkSSAfBosakeRR3gwZ.png?ixlib=java-2.1.0&w=400&s=4b513eb29f7896053a6996ef30575ed8",
+            "nickname": "chelo",
+            "title": "Marcelo 'chelo' Cespedes"
         },
         {
-            "flag": "/img/static/flags/30x20/BR.gif",
-            "nickname": "yuurih"
+            "flag": "https://www.hltv.org/img/static/flags/30x20/BR.gif",
+            "image": "https://img-cdn.hltv.org/playerbodyshot/i6UGhkYxrhutAOmWZT0-8O.png?ixlib=java-2.1.0&w=400&s=2cd696f6ff4baf5680a43d537214b6eb",
+            "nickname": "yuurih",
+            "title": "Yuri 'yuurih' Santos"
         },
         {
-            "flag": "/img/static/flags/30x20/BR.gif",
-            "nickname": "KSCERATO"
+            "flag": "https://www.hltv.org/img/static/flags/30x20/BR.gif",
+            "image": "https://img-cdn.hltv.org/playerbodyshot/U6t0j2bJDKUR3mTI8rIqv7.png?ixlib=java-2.1.0&w=400&s=b5257c378b8122f415f21985855e95ca",
+            "nickname": "KSCERATO",
+            "title": "Kaike 'KSCERATO' Cerato"
         },
         {
-            "flag": "/img/static/flags/30x20/BR.gif",
-            "nickname": "skullz"
+            "flag": "https://www.hltv.org/img/static/flags/30x20/BR.gif",
+            "image": "https://img-cdn.hltv.org/playerbodyshot/Ql8Oez5CfB2SBPOQdLJdL3.png?ixlib=java-2.1.0&w=400&s=780116a9290d11b1347f35182716ad53",
+            "nickname": "skullz",
+            "title": "Felipe 'skullz' Medeiros"
         }
     ],
     "trophies": [
