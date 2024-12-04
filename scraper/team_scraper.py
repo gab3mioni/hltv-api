@@ -83,7 +83,7 @@ class TeamScraper:
         """
         response = self.scraper.get(f"{self.url}#tab-matchesBox")
         soup = BeautifulSoup(response.text, 'html.parser')
-        matches = []
+        matches = {}
 
         matches_container = soup.find('div', id='matchesBox')
         if matches_container:
@@ -104,7 +104,8 @@ class TeamScraper:
                         match_details = self.get_match_details(
                             f"https://www.hltv.org{match_url}", team1_url, team2_url
                         )
-                        matches.append(match_details)
+
+                        matches[match_url] = match_details
 
         return matches
 
