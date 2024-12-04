@@ -36,6 +36,26 @@ def team_info(team_id, team_name):
         return jsonify({'error': 'Team not found'}), 404
     return jsonify(team_data)
 
+@app.route('/matches/<int:team_id>/<string:team_name>', methods=['GET'])
+def upcoming_matches(team_id, team_name):
+    """
+    Busca as próximas partidas de um time específico pelo seu ID e nome.
+
+    Args:
+        team_id (int): O ID único do time.
+        team_name (str): O nome do time.
+
+    Retorna:
+        Response: Uma resposta JSON contendo a lista de próximas partidas do time especificado.
+                  Se nenhuma partida for encontrada, retorna um status 404 com uma mensagem de erro.
+    """
+    scraper = TeamScraper(team_id, team_name)
+    matches = scraper.get_upcoming_matches()
+
+    if not matches:
+        return jsonify({'error': 'Nenhuma partida futura encontrada'}), 404
+    return jsonify(matches)
+
 if __name__ == '__main__':
     """
     Inicia o servidor Flask, rodando a API em modo de desenvolvimento.
