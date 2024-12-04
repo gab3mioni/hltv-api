@@ -19,7 +19,7 @@ def parse_players(soup):
         if player_nick and player_flag:
             players.append({
                 'nickname': player_nick.text.strip(),
-                'flag': player_flag['src']
+                'flag': "https://www.hltv.org" + player_flag['src']
             })
     return players
 
@@ -61,7 +61,7 @@ def parse_coach(soup):
         if coach_name and coach_flag:
             return {
                 'name': coach_name.text.strip().strip("'"),
-                'flag': coach_flag['src']
+                'flag': "https://www.hltv.org" + coach_flag['src']
             }
     return None
 
