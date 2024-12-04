@@ -60,7 +60,7 @@ def parse_coach(soup):
         coach_flag = coach_element.find('img', class_='flag')
         if coach_name and coach_flag:
             return {
-                'name': coach_name.text.strip().strip("'"),
+                'nickname': coach_name.text.strip().strip("'"),
                 'flag': "https://www.hltv.org" + coach_flag['src']
             }
     return None
