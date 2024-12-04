@@ -16,10 +16,13 @@ def parse_players(soup):
     for player_container in player_containers:
         player_nick = player_container.find('div', class_='playerFlagName').find('span', class_='bold')
         player_flag = player_container.find('img', class_='flag')
-        if player_nick and player_flag:
+        player_image = player_container.find('img', class_='bodyshot-team-img')
+        if player_nick and player_flag and player_image:
             players.append({
                 'nickname': player_nick.text.strip(),
-                'flag': "https://www.hltv.org" + player_flag['src']
+                'flag': "https://www.hltv.org" + player_flag['src'],
+                'image': player_image['src'],
+                'title': player_image['title']
             })
     return players
 
