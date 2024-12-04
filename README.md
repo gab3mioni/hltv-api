@@ -12,6 +12,7 @@ The API provides the following information for a given e-sports team:
 - **HLTV Ranking**
 - **Coach Name and Flag**
 - **Team Trophies**
+- **Upcoming Matches**
 
 ## Endpoints
 
