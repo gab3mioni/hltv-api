@@ -79,3 +79,32 @@ GET /team/8297/furia
     "valve_ranking": "#10"
 }
 ```
+
+### `GET /matches/<team_id>/<team_name>`
+
+This endpoint retrieves detailed information about the next matches schedules from team identified by its **team ID** and **team name**.
+
+#### Parameters:
+- `team_id` (integer): The ID of the team on HLTV.org.
+- `team_name` (string): The name of the team (use the exact team name from the URL on HLTV.org).
+
+#### Example Request:
+
+GET /matches/8297/furia
+
+```json
+{
+    "/matches/2377699/spirit-vs-furia-perfect-world-shanghai-major-2024": {
+        "date": "5 Dec",
+        "team1": {
+            "logo": "https://img-cdn.hltv.org/teamlogo/mvNQc4csFGtxXk5guAh8m1.svg?ixlib=java-2.1.0&s=11e5056829ad5d6c06c5961bbe76d20c",
+            "name": "FURIA"
+        },
+        "team2": {
+            "logo": "https://img-cdn.hltv.org/teamlogo/syrtYYKR7sBRw3ZHy1YFX7.png?ixlib=java-2.1.0&w=100&s=8d98ab33e1c8139633132cb9eccda0af",
+            "name": "Spirit"
+        },
+        "time": "05:00"
+    }
+}
+```
