@@ -2,14 +2,19 @@ def parse_players(soup):
     """
     Extrai e retorna a lista de jogadores de um time a partir do conteúdo HTML da página do time.
 
-    A função procura os elementos HTML relacionados aos jogadores, como o nome e a bandeira do país.
-    Cada jogador é representado por um dicionário contendo o nome (nickname) e a URL da bandeira (flag).
+    A função procura os elementos HTML relacionados aos jogadores, como o nome do jogador, 
+    a URL da bandeira do país, a imagem do jogador e o título associado. Cada jogador é representado por 
+    um dicionário contendo estas informações.
 
     Parâmetros:
         soup (BeautifulSoup): Objeto BeautifulSoup contendo o HTML da página do time.
 
     Retorna:
-        list: Lista de dicionários, cada um representando um jogador com o 'nickname' e 'flag'.
+        list: Lista de dicionários, onde cada dicionário representa um jogador e contém as chaves:
+            - 'nickname' (str): Nome do jogador.
+            - 'flag' (str): URL da imagem da bandeira do país do jogador.
+            - 'image' (str): URL da imagem do jogador.
+            - 'title' (str): Texto do atributo 'title' associado à imagem do jogador.
     """
     players = []
     player_containers = soup.find_all('div', class_='bodyshot-team')[0].find_all('a', class_='col-custom')
