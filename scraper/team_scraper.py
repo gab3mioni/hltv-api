@@ -110,7 +110,6 @@ class TeamScraper:
 
         return matches
 
-
     def get_match_details(self, match_url, team1, team2):
         """
         Obtém os detalhes de uma partida específica.
@@ -181,7 +180,7 @@ class TeamScraper:
         match_format_element = soup.find('div', class_='padding preformatted-text')
         if match_format_element:
             full_text = match_format_element.text.strip()
-            match_format = re.search(r'^.*?\(LAN\)', full_text)
+            match_format = re.search(r'^.*?\((LAN|Online)\)', full_text)
             match_details['match_format'] = match_format.group(0) if match_format else full_text
         else:
             match_details['match_format'] = None
