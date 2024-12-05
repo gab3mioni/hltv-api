@@ -1,4 +1,5 @@
 import cloudscraper
+import re
 from bs4 import BeautifulSoup
 from models.teams import Team
 from utils.scraper_utils import parse_players, parse_rankings, parse_coach, parse_trophies
@@ -176,5 +177,13 @@ class TeamScraper:
             }
         else:
             match_details['team2'] = {'name': "Unknown", 'logo': None}
+            
+        match_format_element = soup.find('div', class_='padding preformatted-text')
+        if match_format_element:
+            full_text = match_format_element.text.strip()
+            match_format = re.search(r'^.*?\(LAN\)', full_text)
+            match_details['match_format'] = match_format.group(0) if match_format else full_text
+        else:
+            match_details['match_format'] = None
 
         return match_details
