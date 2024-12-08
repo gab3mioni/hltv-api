@@ -17,18 +17,24 @@ def parse_players(soup):
             - 'title' (str): Texto do atributo 'title' associado à imagem do jogador.
     """
     players = []
-    player_containers = soup.find_all('div', class_='bodyshot-team')[0].find_all('a', class_='col-custom')
-    for player_container in player_containers:
-        player_nick = player_container.find('div', class_='playerFlagName').find('span', class_='bold')
-        player_flag = player_container.find('img', class_='flag')
-        player_image = player_container.find('img', class_='bodyshot-team-img')
-        if player_nick and player_flag and player_image:
-            players.append({
-                'nickname': player_nick.text.strip(),
-                'flag': "https://www.hltv.org" + player_flag['src'],
-                'image': player_image['src'],
-                'title': player_image['title']
-            })
+    try:
+        player_containers = soup.find_all('div', class_='bodyshot-team')[0].find_all('a', class_='col-custom')
+        for player_container in player_containers:
+            try:
+                player_nick = player_container.find('div', class_='playerFlagName').find('span', class_='bold')
+                player_flag = player_container.find('img', class_='flag')
+                player_image = player_container.find('img', class_='bodyshot-team-img')
+                if player_nick and player_flag and player_image:
+                    players.append({
+                        'nickname': player_nick.text.strip(),
+                        'flag': "https://www.hltv.org" + player_flag['src'],
+                        'image': player_image['src'],
+                        'title': player_image['title']
+                    })
+            except Exception as e:
+                print(f"Erro ao processar jogador: {e}")
+    except Exception as e:
+        print(f"Erro ao buscar jogadores: {e}")
     return players
 
 def parse_rankings(soup):
@@ -43,12 +49,16 @@ def parse_rankings(soup):
     Retorna:
         tuple: Tupla contendo o ranking Valve e o ranking HLTV, onde ambos podem ser `None` se não encontrados.
     """
-    valve_ranking_element = soup.find('div', class_='profile-team-stat').find('a', href=True)
-    hltv_ranking_element = soup.find_all('div', class_='profile-team-stat')[1].find('a', href=True)
-    
-    valve_ranking = valve_ranking_element.text.strip() if valve_ranking_element else None
-    hltv_ranking = hltv_ranking_element.text.strip() if hltv_ranking_element else None
-    return valve_ranking, hltv_ranking
+    try:
+        valve_ranking_element = soup.find('div', class_='profile-team-stat').find('a', href=True)
+        hltv_ranking_element = soup.find_all('div', class_='profile-team-stat')[1].find('a', href=True)
+
+        valve_ranking = valve_ranking_element.text.strip() if valve_ranking_element else None
+        hltv_ranking = hltv_ranking_element.text.strip() if hltv_ranking_element else None
+        return valve_ranking, hltv_ranking
+    except Exception as e:
+        print(f"Erro ao buscar rankings: {e}")
+        return None, None
 
 def parse_coach(soup):
     """
@@ -62,16 +72,20 @@ def parse_coach(soup):
     Retorna:
         dict: Dicionário contendo o nome e a bandeira do técnico, ou `None` se o técnico não for encontrado.
     """
-    coach_element = soup.find('div', class_='profile-team-stats-container').find('a', class_='a-reset')
-    if coach_element:
-        coach_name = coach_element.find('span', class_='bold a-default')
-        coach_flag = coach_element.find('img', class_='flag')
-        if coach_name and coach_flag:
-            return {
-                'nickname': coach_name.text.strip().strip("'"),
-                'flag': "https://www.hltv.org" + coach_flag['src']
-            }
-    return None
+    try:
+        coach_element = soup.find('div', class_='profile-team-stats-container').find('a', class_='a-reset')
+        if coach_element:
+            coach_name = coach_element.find('span', class_='bold a-default')
+            coach_flag = coach_element.find('img', class_='flag')
+            if coach_name and coach_flag:
+                return {
+                    'nickname': coach_name.text.strip().strip("'"),
+                    'flag': "https://www.hltv.org" + coach_flag['src']
+                }
+        return None
+    except Exception as e:
+        print(f"Erro ao buscar informações do técnico: {e}")
+        return None
 
 def parse_trophies(soup):
     """
@@ -86,12 +100,21 @@ def parse_trophies(soup):
         list: Lista de dicionários, cada um representando um troféu com 'title' e 'image'.
     """
     trophies = []
-    trophy_containers = soup.find_all('div', class_='trophyRow')[0].find_all('a', class_='trophy')
-    for trophy_container in trophy_containers:
-        trophy_title = trophy_container.find('span', class_='trophyDescription')['title']
-        trophy_image = trophy_container.find('img', class_='trophyIcon')['src']
-        trophies.append({
-            'title': trophy_title,
-            'image': trophy_image
-        })
+    try:
+        trophy_containers = soup.find_all('div', class_='trophyRow')
+        if not trophy_containers:
+            return []
+
+        for trophy_container in trophy_containers[0].find_all('a', class_='trophy'):
+            try:
+                trophy_title = trophy_container.find('span', class_='trophyDescription')['title']
+                trophy_image = trophy_container.find('img', class_='trophyIcon')['src']
+                trophies.append({
+                    'title': trophy_title,
+                    'image': trophy_image
+                })
+            except Exception as e:
+                print(f"Erro ao processar troféu: {e}")
+    except Exception as e:
+        print(f"Erro ao buscar troféus: {e}")
     return trophies
