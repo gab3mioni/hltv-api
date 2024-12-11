@@ -53,18 +53,18 @@ class TeamScraper:
         soup = BeautifulSoup(response.text, 'html.parser')
         team_info = {}
 
-        # Parse basic team info
         team_name_element = soup.find('h1', class_='profile-team-name')
         if team_name_element:
             team_info['name'] = team_name_element.text.strip()
         else:
-            return None
+            return 'Unknown'
         
         team_logo_element = soup.find('img', class_='teamlogo')
         if team_logo_element:
             team_info['image'] = team_logo_element['src']
+        else:
+            return 'Unknown'
 
-        # Parse additional details
         team_info['players'] = parse_players(soup)
         team_info['valve_ranking'], team_info['hltv_ranking'] = parse_rankings(soup)
         team_info['coach'] = parse_coach(soup)
