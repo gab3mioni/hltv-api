@@ -1,5 +1,6 @@
 from flask import Flask, jsonify
 from scraper.team_scraper import TeamScraper
+from scraper.match_scraper import MatchScraper
 
 app = Flask(__name__)
 
@@ -49,7 +50,7 @@ def upcoming_matches(team_id, team_name):
         Response: Uma resposta JSON contendo a lista de próximas partidas do time especificado.
                   Se nenhuma partida for encontrada, retorna um status 404 com uma mensagem de erro.
     """
-    scraper = TeamScraper(team_id, team_name)
+    scraper = MatchScraper(team_id, team_name)
     matches = scraper.get_upcoming_matches()
 
     if not matches:
