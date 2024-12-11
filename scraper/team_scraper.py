@@ -45,7 +45,7 @@ class TeamScraper:
                   'valve_ranking', 'hltv_ranking', 'coach' e 'trophies'. Retorna `None` se não encontrar
                   o nome do time na página.
         """
-        scraper_instance = Scraper(self.team_id, self.team_name)
+        scraper_instance = Scraper()
         soup = scraper_instance.html_parser(self.url)
         team_info = {}
 

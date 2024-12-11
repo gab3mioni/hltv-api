@@ -18,7 +18,7 @@ class MatchScraper:
        Retorna:
            list: Uma lista de dicionários, onde cada dicionário contém os detalhes de uma partida.
         """
-        scraper_instance = Scraper(self.team_id, self.team_name)
+        scraper_instance = Scraper()
         match_url = f"{self.url}#tab-matchesBox"
         soup = scraper_instance.html_parser(match_url)
         matches = {}
@@ -66,7 +66,7 @@ class MatchScraper:
             - 'team1': Detalhes do primeiro time (nome e logo).
             - 'team2': Detalhes do segundo time (nome e logo).
         """
-        scraper_instance = Scraper(self.team_id, self.team_name)
+        scraper_instance = Scraper()
         soup = scraper_instance.html_parser(match_url)
         match_details = {}
 
