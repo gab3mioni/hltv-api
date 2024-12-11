@@ -1,4 +1,3 @@
-import cloudscraper
 from scraper.scraper import Scraper
 from utils.scraper_utils import parse_players, parse_rankings, parse_coach, parse_trophies
 
@@ -32,7 +31,6 @@ class TeamScraper:
         """
         self.team_id = team_id
         self.team_name = team_name
-        self.scraper = cloudscraper.create_scraper()
         self.url = f"https://www.hltv.org/team/{team_id}/{team_name}"
 
     def get_team_info(self):
