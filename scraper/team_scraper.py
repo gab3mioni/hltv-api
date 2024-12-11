@@ -1,7 +1,6 @@
 import cloudscraper
 import re
 from bs4 import BeautifulSoup
-from models.teams import Team
 from utils.scraper_utils import parse_players, parse_rankings, parse_coach, parse_trophies
 
 class TeamScraper:
