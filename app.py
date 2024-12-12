@@ -1,6 +1,7 @@
 from flask import Flask, jsonify
 from scraper.team_scraper import TeamScraper
 from scraper.match_scraper import MatchScraper
+from scraper.event_scraper import EventScraper
 
 app = Flask(__name__)
 
@@ -53,6 +54,26 @@ def upcoming_matches(team_id, team_name):
     if not matches:
         return jsonify({'error': 'Nenhuma partida futura encontrada'}), 404
     return jsonify(matches)
+
+@app.route('/events/<int:event_id>/<string:event_name>', methods=['GET'])
+def event_info(event_id, event_name):
+    """
+    Busca informações sobre um evento de CS2 específico.
+
+    Args:
+        event_id (int): O ID único do evento.
+        event_name (str): O nome do evento.
+
+    Retorna:
+        Response: Uma resposta JSON contendo detalhes sobre o evento especificado.
+                  Se o evento não for encontrado, retorna um status 404 com uma mensagem de erro.
+    """
+    scraper = EventScraper(event_id, event_name)
+    event_data = scraper.get_event_details()
+
+    if not event_data:
+        return jsonify({'error': 'Evento não encontrado'}), 404
+    return jsonify(event_data)
 
 if __name__ == '__main__':
     """
