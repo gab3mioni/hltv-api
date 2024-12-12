@@ -130,7 +130,7 @@ This endpoint retrieves detailed information about an event identified by its **
 
 #### Example Request:
 
-GET /event/7524/perfect-world-shanghai-major-2024
+GET /events/7524/perfect-world-shanghai-major-2024
 
 ```json
 {
@@ -259,5 +259,151 @@ GET /event/7524/perfect-world-shanghai-major-2024
     "prize_pool": "$1,250,000",
     "teams": "16",
     "title": "Perfect World Shanghai Major 2024"
+}
+```
+
+GET events/8172/cct-season-2-europe-series-15
+
+```json
+{
+    "date": "Dec 3rd - Dec 15th 2024",
+    "location": {
+        "flag": "https://www.hltv.org/img/static/flags/30x20/EU.gif",
+        "location": "Europe",
+        "type": "Online"
+    },
+    "prize_distribution": {
+        "17-19th": [
+            {
+                "prizes": [],
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/lPfoQHMaORhkfTpcbR-lCQ.png?ixlib=java-2.1.0&w=200&s=1a398c9c33156ada6eb2b8c9513015f5",
+                "team_name": "KOI"
+            },
+            {
+                "prizes": [],
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/dEkPG3QFLGo6xl9DtGPsm2.png?ixlib=java-2.1.0&w=200&s=232673008b529ffec63bb1252d8107c8",
+                "team_name": "Fire Flux"
+            },
+            {
+                "prizes": [],
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/_xqicJ8DEOBw-M74mVqh2-.png?ixlib=java-2.1.0&w=200&s=8f660b6eed5612a4d2732212029ab782",
+                "team_name": "Insilio"
+            }
+        ],
+        "1st": [
+            {
+                "prizes": [
+                    "$22,000"
+                ]
+            }
+        ],
+        "20-22nd": [
+            {
+                "prizes": [],
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/MDFborrTXebGid2bmaTA2B.png?ixlib=java-2.1.0&w=200&s=3a10ec70e137a72a9015ea4e2c68ecc5",
+                "team_name": "CYBERSHOKE"
+            },
+            {
+                "prizes": [],
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/4on2ywp0wcfk7vjUN3OjZk.png?ixlib=java-2.1.0&w=200&s=80ec7a319df779f5be5853fca66f0cfa",
+                "team_name": "FAVBET"
+            },
+            {
+                "prizes": [],
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/1rM-qNVqKfIbsfOQp7bjTq.png?ixlib=java-2.1.0&w=200&s=c469664f76f1a1a55f60e4053b60cfc9",
+                "team_name": "FLuffy Gangsters"
+            }
+        ],
+        "23-24th": [
+            {
+                "prizes": [],
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/f8LhN1SIFHyICHa1OjVmvx.png?ixlib=java-2.1.0&w=200&s=2246c4f3d780ec708a7ebf439a21eba6",
+                "team_name": "Sampi"
+            },
+            {
+                "prizes": [],
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/nnUUng-EKdho6MRIhK3-5N.png?ixlib=java-2.1.0&w=200&s=b13fa4ef8b8ed3c7971404ec2f5f8738",
+                "team_name": "Gaimin Gladiators"
+            }
+        ],
+        "2nd": [
+            {
+                "prizes": [
+                    "$10,000"
+                ]
+            }
+        ],
+        "3-4th": [
+            {
+                "prizes": [
+                    "$5,000"
+                ]
+            },
+            {
+                "prizes": [
+                    "$5,000"
+                ]
+            }
+        ],
+        "5-8th": [
+            {
+                "prizes": [
+                    "$2,000"
+                ]
+            },
+            {
+                "prizes": [
+                    "$2,000"
+                ]
+            },
+            {
+                "prizes": [
+                    "$2,000"
+                ]
+            },
+            {
+                "prizes": [
+                    "$2,000"
+                ]
+            }
+        ],
+        "9-16th": [
+            {
+                "prizes": []
+            },
+            {
+                "prizes": []
+            },
+            {
+                "prizes": []
+            },
+            {
+                "prizes": []
+            },
+            {
+                "prizes": [],
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/8CHmYIq6FPDGeRSWzFX1uu.png?ixlib=java-2.1.0&w=200&s=82a76e54671f7547c60d39a8349384d9",
+                "team_name": "DMS"
+            },
+            {
+                "prizes": [],
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/h7rPBXKkg9rmhbeBVmRG28.png?ixlib=java-2.1.0&w=200&s=a5887bf2774a83a1cc9deaae7a9f46db",
+                "team_name": "GUN5"
+            },
+            {
+                "prizes": [],
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/LrJW0lI8ifto6tzTjNkxpw.png?ixlib=java-2.1.0&w=200&s=2e00c6f11eb400463fcef4f8a2287acf",
+                "team_name": "Endpoint"
+            },
+            {
+                "prizes": [],
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/O6nRWTCjUzBAR4pcOcrpSG.png?ixlib=java-2.1.0&w=200&s=7c49777d91e3f2b8de8dbe439f8fb112",
+                "team_name": "B8"
+            }
+        ]
+    },
+    "prize_pool": "$50,000",
+    "teams": "24",
+    "title": "CCT Season 2 Europe Series 15"
 }
 ```
