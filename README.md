@@ -119,3 +119,145 @@ GET /matches/8297/furia
     }
 }
 ```
+
+### `GET /events/<event_id>/<event_name>`
+
+This endpoint retrieves detailed information about an event identified by its **event ID** and **event name**.
+
+#### Parameters:
+- `event_id` (integer): The ID of the event on HLTV.org.
+- `event_name` (string): The name of the event (use the exact event name from the URL on HLTV.org).
+
+#### Example Request:
+
+GET /event/7524/perfect-world-shanghai-major-2024
+
+```json
+{
+    "date": "Dec 5th - Dec 15th 2024",
+    "location": {
+        "flag": "https://www.hltv.org/img/static/flags/30x20/CN.gif",
+        "location": "Shanghai, China",
+        "type": "Unknown"
+    },
+    "prize_distribution": {
+        "12-14th": [
+            {
+                "prizes": [
+                    "$20,000"
+                ],
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/iUUCFwCOFmOrwhB8q8smMg.svg?ixlib=java-2.1.0&s=1446e1cf3d02deb8190fe6efd14e4ce4",
+                "team_name": "paiN"
+            },
+            {
+                "prizes": [
+                    "$20,000"
+                ],
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/jS__cj2F09Bl8qBU_CvkQR.png?ixlib=java-2.1.0&w=200&s=9b9252b6e3737f4a32c1de457bc308ce",
+                "team_name": "GamerLegion"
+            },
+            {
+                "prizes": [
+                    "$20,000"
+                ],
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/QGPDS3Z2-aMXwCYVgA4RWH.png?ixlib=java-2.1.0&w=200&s=7ee780a2a85e9a27098df617b87fb702",
+                "team_name": "3DMAX"
+            }
+        ],
+        "15-16th": [
+            {
+                "prizes": [
+                    "$20,000"
+                ],
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/OgMRQA35hopXA8kDwMFHIY.svg?ixlib=java-2.1.0&s=ec7bc44165c7acf4224a22a1338ab7d7",
+                "team_name": "BIG"
+            },
+            {
+                "prizes": [
+                    "$20,000"
+                ],
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/-46lJ-DcmPL_j_5R2WvLiS.png?ixlib=java-2.1.0&w=200&s=c668203646759ca9af0549d6ea1fb93f",
+                "team_name": "Wildcard"
+            }
+        ],
+        "1st": [
+            {
+                "prizes": [
+                    "$500,000"
+                ]
+            }
+        ],
+        "2nd": [
+            {
+                "prizes": [
+                    "$170,000"
+                ]
+            }
+        ],
+        "3-4th": [
+            {
+                "prizes": [
+                    "$80,000"
+                ]
+            },
+            {
+                "prizes": [
+                    "$80,000"
+                ]
+            }
+        ],
+        "5-8th": [
+            {
+                "prizes": [
+                    "$45,000"
+                ]
+            },
+            {
+                "prizes": [
+                    "$45,000"
+                ]
+            },
+            {
+                "prizes": [
+                    "$45,000"
+                ],
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/JMeLLbWKCIEJrmfPaqOz4O.svg?ixlib=java-2.1.0&s=c02caf90234d3a3ebac074c84ba1ea62",
+                "team_name": "Liquid"
+            },
+            {
+                "prizes": [
+                    "$45,000"
+                ],
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/bRk2sh_tSTO6fq1GLhgcal.png?ixlib=java-2.1.0&w=200&s=d82e930fcea873b51ceab34c1a338b02",
+                "team_name": "The MongolZ"
+            }
+        ],
+        "9-11th": [
+            {
+                "prizes": [
+                    "$20,000"
+                ],
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/mvNQc4csFGtxXk5guAh8m1.svg?ixlib=java-2.1.0&s=11e5056829ad5d6c06c5961bbe76d20c",
+                "team_name": "FURIA"
+            },
+            {
+                "prizes": [
+                    "$20,000"
+                ],
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/9iMirAi7ArBLNU8p3kqUTZ.svg?ixlib=java-2.1.0&s=4dd8635be16122656093ae9884675d0c",
+                "team_name": "Natus Vincere"
+            },
+            {
+                "prizes": [
+                    "$20,000"
+                ],
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/sVnH-oAf1J5TnMwoY4cxUC.png?ixlib=java-2.1.0&w=200&s=50d17f716e2c25219327e061a4ac046d",
+                "team_name": "MIBR"
+            }
+        ]
+    },
+    "prize_pool": "$1,250,000",
+    "teams": "16",
+    "title": "Perfect World Shanghai Major 2024"
+}
+```
