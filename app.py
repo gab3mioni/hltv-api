@@ -17,10 +17,7 @@ def home():
 @app.route('/team/<int:team_id>/<string:team_name>', methods=['GET'])
 def team_info(team_id, team_name):
     """
-    Endpoint que retorna as informações de um time de e-sports específico.
-
-    Este endpoint faz scraping do site HLTV.org para obter detalhes sobre
-    o time, como jogadores, ranking, próximas partidas, resultados passados, etc.
+    Endpoint que retorna as informações de um time de CS2 específico.
 
     Parâmetros:
         team_id (int): O ID do time no site HLTV.
