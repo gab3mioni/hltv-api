@@ -1,10 +1,10 @@
 # HLTV Web Scraping API
 
-This project provides a simple API built with Flask that scrapes information from the [HLTV.org](https://www.hltv.org) website. The API allows users to retrieve detailed information about a specific e-sports team based on their team ID or name.
+This project provides a simple API built with Flask that scrapes information from the [HLTV.org](https://www.hltv.org) website. The API allows users to retrieve detailed information about a specific CS2 team based on their team ID and name or an event based on their event ID and name
 
 ## Features
 
-The API provides the following information for a given e-sports team:
+The API provides the following information for a given CS2 team:
 - **Team Name**
 - **Team Logo Image**
 - **Player Names and Flags**
@@ -13,6 +13,14 @@ The API provides the following information for a given e-sports team:
 - **Coach Name and Flag**
 - **Team Trophies**
 - **Upcoming Matches**
+
+The API provides the following information for a given CS2 event:
+- **Event name**
+- **Event date**
+- **Prize pool**
+- **Number of teams**
+- **Event Location**
+- **Prize distribution**
 
 ## Endpoints
 
