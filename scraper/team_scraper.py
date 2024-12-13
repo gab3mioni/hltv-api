@@ -3,31 +3,30 @@ from scraper.scraper import Scraper
 
 class TeamScraper:
     """
-    Classe responsável por realizar o scraping das informações de um time no HLTV.
+    A class to scrape information about a team from the HLTV.
 
-    A classe utiliza a biblioteca `cloudscraper` para contornar as proteções do site e `BeautifulSoup` para
-    fazer o parsing do HTML da página de um time específico no HLTV. Ela coleta informações como nome, logo,
-    jogadores, rankings, técnico e troféus do time.
+    Attributes:
+        team_id (str): The unique ID of the team.
+        team_name (str): The name of the team.
+        url (str): The URL to the team page on HLTV.
+        scraper_instance (Scraper): An instance of the Scraper class to fetch and parse the HTML.
 
-    Atributos:
-        team_id (int): ID do time no HLTV.
-        team_name (str): Nome do time no HLTV.
-        scraper (cloudscraper.CloudScraper): Instância do scraper para fazer as requisições HTTP.
-        url (str): URL da página do time no HLTV.
-
-    Métodos:
-        __init__(team_id, team_name): Inicializa a instância da classe com os dados do time.
-        get_team_info(): Retorna as informações detalhadas do time, como nome, logo, jogadores, rankings,
-                        técnico e troféus.
+    Methods:
+        get_team_info(): Scrapes and returns the team information, including name, logo, players, rankings, coach, and trophies.
+        _get_team_name(soup): Extracts the team name from the parsed HTML.
+        _get_team_logo(soup): Extracts the team logo URL from the parsed HTML.
+        _get_players(soup): Extracts information about the players, including nickname, flag, image, and title.
+        _get_rankings(soup): Extracts the team Valve and HLTV rankings.
+        _get_coach(soup): Extracts the coach nickname and flag.
+        _get_trophies(soup): Extracts information about the team's trophies, including title, image, and URL.
     """
-
     def __init__(self, team_id, team_name):
         """
-        Inicializa a instância do TeamScraper com o ID e nome do time.
+        Initializes the TeamScraper instance with a team ID and team name.
 
-        Parâmetros:
-            team_id (int): ID do time.
-            team_name (str): Nome do time.
+        Args:
+            team_id (str): The unique ID of the team.
+            team_name (str): The name of the team.
         """
         self.team_id = team_id
         self.team_name = team_name
@@ -36,14 +35,10 @@ class TeamScraper:
 
     def get_team_info(self):
         """
-        Obtém as informações detalhadas do time a partir da página do HLTV.
+        Scrapes and returns the team's information from the HLTV website.
 
-        A função faz uma requisição HTTP à página do time, faz o parsing do HTML e extrai informações como
-        nome do time, logo, jogadores, rankings, técnico e troféus, utilizando funções auxiliares.
-
-        Retorna:
-            dict: Dicionário contendo as informações do time, incluindo 'name', 'image', 'players', 
-                  'valve_ranking', 'hltv_ranking', 'coach' e 'trophies'.
+        Returns:
+            OrderedDict: A dictionary containing the team's name, logo, players, rankings, coach, and trophies.
         """
         soup = self.scraper_instance.html_parser(self.url)
         team_info = OrderedDict([
@@ -58,14 +53,41 @@ class TeamScraper:
         return team_info
     
     def _get_team_name(self, soup):
+        """
+        Extracts the team name from the parsed HTML.
+
+        Args:
+            soup (BeautifulSoup): The parsed HTML of the team's page.
+
+        Returns:
+            str: The team name, or 'Unknown' if the name is not found.
+        """
         team_name_element = soup.find('h1', class_='profile-team-name')
         return team_name_element.text.strip() if team_name_element else 'Unknown'
     
     def _get_team_logo(self, soup):
+        """
+        Extracts the team logo URL from the parsed HTML.
+
+        Args:
+            soup (BeautifulSoup): The parsed HTML of the team's page.
+
+        Returns:
+            str: The team logo URL, or 'Unknown' if the logo is not found.
+        """
         team_logo_element = soup.find('img', class_='teamlogo')
         return team_logo_element['src'] if team_logo_element else 'Unknown'
     
     def _get_players(self, soup):
+        """
+        Extracts information about the players, including nickname, flag, image, and title.
+
+        Args:
+            soup (BeautifulSoup): The parsed HTML of the team's page.
+
+        Returns:
+            list: A list of dictionaries containing player information (nickname, flag, image, title).
+        """
         players = []
         player_containers = soup.find_all('div', class_='bodyshot-team')[0].find_all('a', class_='col-custom')
         for player_container in player_containers:
@@ -90,6 +112,15 @@ class TeamScraper:
         return players
         
     def _get_rankings(self, soup):
+        """
+        Extracts the team's Valve and HLTV rankings from the parsed HTML.
+
+        Args:
+            soup (BeautifulSoup): The parsed HTML of the team's page.
+
+        Returns:
+            dict: A dictionary containing the Valve and HLTV rankings.
+        """
         valve_ranking_element = soup.find('div', class_='profile-team-stat').find('a', href=True)
         hltv_ranking_element = soup.find_all('div', class_='profile-team-stat')[1].find('a', href=True)
 
@@ -102,6 +133,15 @@ class TeamScraper:
         }
         
     def _get_coach(self, soup):
+        """
+        Extracts the coach's nickname and flag from the parsed HTML.
+
+        Args:
+            soup (BeautifulSoup): The parsed HTML of the team's page.
+
+        Returns:
+            dict: A dictionary containing the coach's nickname and flag.
+        """
         coach_element = soup.find('div', class_='profile-team-stats-container').find('a', class_='a-reset')
         if coach_element:
             coach_name = coach_element.find('span', class_='bold a-default')
@@ -118,6 +158,15 @@ class TeamScraper:
         }
         
     def _get_trophies(self, soup):
+        """
+        Extracts information about the team's trophies, including title, image, and URL.
+
+        Args:
+            soup (BeautifulSoup): The parsed HTML of the team's page.
+
+        Returns:
+            list: A list of dictionaries containing trophy information (title, image, URL).
+        """
         trophy_containers = soup.find_all('div', class_='trophyRow')
         trophies = []
         
