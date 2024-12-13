@@ -1,4 +1,5 @@
-from flask import Flask, jsonify
+import json
+from flask import Flask, jsonify, Response
 from scraper.team_scraper import TeamScraper
 from scraper.match_scraper import MatchScraper
 from scraper.event_scraper import EventScraper
@@ -53,7 +54,8 @@ def upcoming_matches(team_id, team_name):
 
     if not matches:
         return jsonify({'error': 'Nenhuma partida futura encontrada'}), 404
-    return jsonify(matches)
+    matches_json = json.dumps(matches, ensure_ascii=False, indent=4)
+    return Response(matches_json, mimetype='application/json')
 
 @app.route('/events/<int:event_id>/<string:event_name>', methods=['GET'])
 def event_info(event_id, event_name):
