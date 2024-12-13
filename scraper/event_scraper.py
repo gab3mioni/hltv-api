@@ -1,9 +1,8 @@
 import re
 from collections import OrderedDict
 from scraper.scraper import Scraper
-from .interfaces.interfaces import IEventScraper
 
-class EventScraper(IEventScraper):
+class EventScraper():
     def __init__(self, event_id, event_name):
         self.event_id = event_id
         self.event_name = event_name
