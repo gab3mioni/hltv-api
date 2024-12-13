@@ -75,7 +75,8 @@ def event_info(event_id, event_name):
 
     if not event_data:
         return jsonify({'error': 'Evento não encontrado'}), 404
-    return jsonify(event_data)
+    event_json = json.dumps(event_data, ensure_ascii=False, indent=4)
+    return Response(event_json, mimetype='application/json')
 
 if __name__ == '__main__':
     """

@@ -1,4 +1,5 @@
 import re
+from collections import OrderedDict
 from scraper.scraper import Scraper
 from .interfaces.interfaces import IEventScraper
 
@@ -11,14 +12,14 @@ class EventScraper(IEventScraper):
 
     def get_event_details(self):
         soup = self.scraper_instance.html_parser(self.url)
-        event_details = {}
-
-        event_details['title'] = self._get_title(soup)
-        event_details['date'] = self._get_date(soup)
-        event_details['prize_pool'] = self._get_prize_pool(soup)
-        event_details['teams'] = self._get_teams(soup)
-        event_details['location'] = self._get_location(soup)
-        event_details['prize_distribution'] = self._get_prize_distribution(soup)
+        event_details = OrderedDict([
+            ('title', self._get_title(soup)),
+            ('date', self._get_date(soup)),
+            ('prize_pool', self._get_prize_pool(soup)),
+            ('teams', self._get_teams(soup)),
+            ('location', self._get_location(soup)),
+            ('prize_distribution', self._get_prize_distribution(soup))
+        ])
 
         return event_details
 
