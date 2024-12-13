@@ -34,7 +34,8 @@ def team_info(team_id, team_name):
 
     if not team_data:
         return jsonify({'error': 'Team not found'}), 404
-    return jsonify(team_data)
+    team_json = json.dumps(team_data, ensure_ascii=False, indent=4)
+    return Response(team_json, mimetype='application/json')
 
 @app.route('/matches/<int:team_id>/<string:team_name>', methods=['GET'])
 def upcoming_matches(team_id, team_name):
