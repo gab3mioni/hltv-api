@@ -9,25 +9,25 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     """
-    Endpoint inicial que retorna uma mensagem de boas-vindas.
+    Initial endpoint that returns a welcome message.
 
     Returns:
-        str: Mensagem indicando que a API está funcionando.
+        str: A message indicating that the API is up and running.
     """
     return "HLTV Web Scraping API"
 
 @app.route('/team/<int:team_id>/<string:team_name>', methods=['GET'])
 def team_info(team_id, team_name):
     """
-    Endpoint que retorna as informações de um time de CS2 específico.
+    Endpoint that retrieves information about a specific CS2 team.
 
-    Parâmetros:
-        team_id (int): O ID do time no site HLTV.
-        team_name (string): O nome do time (exato como aparece no site HLTV).
+    Args:
+        team_id (int): The team's ID on the HLTV website.
+        team_name (str): The team's name, exactly as it appears on the HLTV website.
 
     Returns:
-        json: Dados do time em formato JSON. Em caso de erro (time não encontrado),
-              retorna um erro 404 com uma mensagem.
+        Response: A JSON object containing the team's data.
+                  If the team is not found, returns a 404 error with an appropriate message.
     """
     scraper = TeamScraper(team_id, team_name)
     team_data = scraper.get_team_info()
@@ -40,50 +40,50 @@ def team_info(team_id, team_name):
 @app.route('/matches/<int:team_id>/<string:team_name>', methods=['GET'])
 def upcoming_matches(team_id, team_name):
     """
-    Busca as próximas partidas de um time específico pelo seu ID e nome.
+    Endpoint that retrieves the upcoming matches for a specific CS2 team.
 
     Args:
-        team_id (int): O ID único do time.
-        team_name (str): O nome do time.
+        team_id (int): The team's unique ID.
+        team_name (str): The team's name.
 
-    Retorna:
-        Response: Uma resposta JSON contendo a lista de próximas partidas do time especificado.
-                  Se nenhuma partida for encontrada, retorna um status 404 com uma mensagem de erro.
+    Returns:
+        Response: A JSON object containing the list of upcoming matches for the specified team.
+                  If no matches are found, returns a 404 error with an appropriate message.
     """
     scraper = MatchScraper(team_id, team_name)
     matches = scraper.get_upcoming_matches()
 
     if not matches:
-        return jsonify({'error': 'Nenhuma partida futura encontrada'}), 404
+        return jsonify({'error': 'No upcoming matches found'}), 404
     matches_json = json.dumps(matches, ensure_ascii=False, indent=4)
     return Response(matches_json, mimetype='application/json')
 
 @app.route('/events/<int:event_id>/<string:event_name>', methods=['GET'])
 def event_info(event_id, event_name):
     """
-    Busca informações sobre um evento de CS2 específico.
+    Endpoint that retrieves information about a specific CS2 event.
 
     Args:
-        event_id (int): O ID único do evento.
-        event_name (str): O nome do evento.
+        event_id (int): The event's unique ID.
+        event_name (str): The event's name.
 
-    Retorna:
-        Response: Uma resposta JSON contendo detalhes sobre o evento especificado.
-                  Se o evento não for encontrado, retorna um status 404 com uma mensagem de erro.
+    Returns:
+        Response: A JSON object containing details about the specified event.
+                  If the event is not found, returns a 404 error with an appropriate message.
     """
     scraper = EventScraper(event_id, event_name)
     event_data = scraper.get_event_details()
 
     if not event_data:
-        return jsonify({'error': 'Evento não encontrado'}), 404
+        return jsonify({'error': 'Event not found'}), 404
     event_json = json.dumps(event_data, ensure_ascii=False, indent=4)
     return Response(event_json, mimetype='application/json')
 
 if __name__ == '__main__':
     """
-    Inicia o servidor Flask, rodando a API em modo de desenvolvimento.
+    Starts the Flask server and runs the API in development mode.
 
-    Quando o script é executado diretamente, o servidor Flask é iniciado
-    com a configuração de debug ativada.
+    When this script is executed directly, the Flask server is launched
+    with debugging enabled.
     """
     app.run(debug=True)
