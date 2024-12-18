@@ -1,3 +1,3 @@
-cloudscraper
-beautifulsoup4
-Flask
+cloudscraper==1.2.70
+beautifulsoup4==4.12.2
+Flask==2.3.3
