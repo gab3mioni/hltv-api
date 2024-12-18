@@ -3,6 +3,7 @@ from flask import Flask, jsonify, Response
 from scraper.team_scraper import TeamScraper
 from scraper.match_scraper import MatchScraper
 from scraper.event_scraper import EventScraper
+from scraper.result_scraper import ResultScraper
 
 app = Flask(__name__)
 
@@ -78,6 +79,16 @@ def event_info(event_id, event_name):
         return jsonify({'error': 'Event not found'}), 404
     event_json = json.dumps(event_data, ensure_ascii=False, indent=4)
     return Response(event_json, mimetype='application/json')
+
+@app.route('/result/<int:match_id>/<string:match_name>', methods=['GET'])
+def result_info(match_id, match_name):
+    scraper = ResultScraper(match_id, match_name)
+    result_data = scraper.get_results()
+
+    if not result_data:
+        return jsonify({'error': 'Live match not found'}), 404
+    result_json = json.dumps(result_data, ensure_ascii=False, indent=4)
+    return Response(result_json, mimetype='application/json')
 
 if __name__ == '__main__':
     """
