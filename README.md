@@ -193,6 +193,8 @@ GET /events/7524/perfect-world-shanghai-major-2024
     "prize_distribution": {
         "1st": [
             {
+                "team_name": "Spirit",
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/syrtYYKR7sBRw3ZHy1YFX7.png?ixlib=java-2.1.0&w=200&s=155e7cf96a2271f213fd06d9c3dd163b",
                 "prizes": [
                     "$500,000"
                 ]
@@ -200,6 +202,8 @@ GET /events/7524/perfect-world-shanghai-major-2024
         ],
         "2nd": [
             {
+                "team_name": "FaZe",
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/zbcwVqDX-cVjB7EidzNoPd.png?ixlib=java-2.1.0&w=200&s=d2a74b1f21c671ce247ca94cee323c7d",
                 "prizes": [
                     "$170,000"
                 ]
@@ -207,11 +211,15 @@ GET /events/7524/perfect-world-shanghai-major-2024
         ],
         "3-4th": [
             {
+                "team_name": "G2",
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/zFLwAELOD15BjJSDMMNBWQ.png?ixlib=java-2.1.0&w=200&s=457c1663356d6dd20e39a1188b267802",
                 "prizes": [
                     "$80,000"
                 ]
             },
             {
+                "team_name": "MOUZ",
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/IejtXpquZnE8KqYPB1LNKw.svg?ixlib=java-2.1.0&s=7fd33b8def053fbfd8fdbb58e3bdcd3c",
                 "prizes": [
                     "$80,000"
                 ]
@@ -329,6 +337,8 @@ GET events/8172/cct-season-2-europe-series-15
     "prize_distribution": {
         "1st": [
             {
+                "team_name": "Spirit Academy",
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/txUq00aBKY7O4fLVJegmi_.png?ixlib=java-2.1.0&w=200&s=e844936f7a1bb7e5dad4d2380ccda958",
                 "prizes": [
                     "$22,000"
                 ]
@@ -336,6 +346,8 @@ GET events/8172/cct-season-2-europe-series-15
         ],
         "2nd": [
             {
+                "team_name": "ECSTATIC",
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/yx_pWjWbW-2F5oF5nLHXc8.png?ixlib=java-2.1.0&w=200&s=5ccdd3ba666603e7bdec3ff5f54c946c",
                 "prizes": [
                     "$10,000"
                 ]
@@ -343,11 +355,15 @@ GET events/8172/cct-season-2-europe-series-15
         ],
         "3-4th": [
             {
+                "team_name": "ENCE",
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/-X8NoyWC_1gYqUHvZqcpkc.svg?ixlib=java-2.1.0&s=85bb9daa6f846fa097c5942f2565fdb8",
                 "prizes": [
                     "$5,000"
                 ]
             },
             {
+                "team_name": "9INE",
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/BGC4LXlC8s4W0xWyelk2BI.png?ixlib=java-2.1.0&w=200&s=be93217172852a964de706d720f4e2cc",
                 "prizes": [
                     "$5,000"
                 ]
@@ -355,21 +371,29 @@ GET events/8172/cct-season-2-europe-series-15
         ],
         "5-8th": [
             {
+                "team_name": "AMKAL",
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/KNl9ZeR2afmpj3-J0fSilz.png?ixlib=java-2.1.0&w=200&s=0a43afad15e8ed5e080afbd3e9ce2524",
                 "prizes": [
                     "$2,000"
                 ]
             },
             {
+                "team_name": "Metizport",
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/uHxM4VRz0qIDKVsckVrbjv.png?ixlib=java-2.1.0&w=200&s=c1902727f945c44a4c0199bc524e73b4",
                 "prizes": [
                     "$2,000"
                 ]
             },
             {
+                "team_name": "Zero Tenacity",
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/5RRO6-Yzo13W3OjXINCQEJ.png?ixlib=java-2.1.0&w=200&s=3a68f9dbaebe9e20d9ca71d80120ebaa",
                 "prizes": [
                     "$2,000"
                 ]
             },
             {
+                "team_name": "Aurora Young Blud",
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/oEbMpT1GK1wi2A3H_hRi06.png?ixlib=java-2.1.0&w=200&s=c8fcdd9ce555349ca6303bf15bdf8253",
                 "prizes": [
                     "$2,000"
                 ]
@@ -377,9 +401,13 @@ GET events/8172/cct-season-2-europe-series-15
         ],
         "9-16th": [
             {
+                "team_name": "Into the Breach",
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/Tgyea9TVbc37YisEY4Y13a.png?ixlib=java-2.1.0&w=200&s=06c157edc8f8e6017bb74883a415f256",
                 "prizes": []
             },
             {
+                "team_name": "ALTERNATE aTTaX",
+                "team_logo": "https://img-cdn.hltv.org/teamlogo/JoPCUmjz0PcCiCPqNHIyR3.svg?ixlib=java-2.1.0&s=24f23b651e49eaab76bae4945b19d7ec",
                 "prizes": []
             },
             {
