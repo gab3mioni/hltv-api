@@ -13,6 +13,7 @@ The API provides the following information for a given CS2 team:
 - **Coach Name and Flag**
 - **Team Trophies**
 - **Upcoming Matches**
+- **Match results**
 
 The API provides the following information for a given CS2 event:
 - **Event name**
@@ -459,5 +460,52 @@ GET events/8172/cct-season-2-europe-series-15
             }
         ]
     }
+}
+```
+
+### `GET /result/<match_id>/<match_name>`
+
+This endpoint retrieves detailed information about a completed match, including team results and map details, identified by its **match ID** and **match name**.
+
+#### Parameters:
+- `match_id` (integer): The unique ID of the match on HLTV.org. This value can be found in the match's URL.
+- `match_name` (string): The specific name of the match (use the exact match name from the URL on HLTV.org).
+
+#### Example Request:
+
+GET /result/2377734/g2-vs-faze-perfect-world-shanghai-major-2024
+
+```json
+{
+    "details": {
+        "date": "14 Dec",
+        "time": "11:35",
+        "team1": {
+            "name": "G2",
+            "logo": "https://img-cdn.hltv.org/teamlogo/zFLwAELOD15BjJSDMMNBWQ.png?ixlib=java-2.1.0&w=100&s=88aeba1564bc27de69fb2302e47e1a7c"
+        },
+        "team2": {
+            "name": "FaZe",
+            "logo": "https://img-cdn.hltv.org/teamlogo/zbcwVqDX-cVjB7EidzNoPd.png?ixlib=java-2.1.0&w=100&s=5d6488f42991807e0d921d0290c711ab"
+        },
+        "match_format": "Best of 3 (LAN)"
+    },
+    "maps": [
+        {
+            "map": "Ancient",
+            "team1_score": "6",
+            "team2_score": "13"
+        },
+        {
+            "map": "Nuke",
+            "team1_score": "14",
+            "team2_score": "16"
+        },
+        {
+            "map": "Anubis",
+            "team1_score": "-",
+            "team2_score": "-"
+        }
+    ]
 }
 ```
