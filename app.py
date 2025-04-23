@@ -1,4 +1,5 @@
 import json
+import os
 from flask import Flask, jsonify, Response
 from scraper.team_scraper import TeamScraper
 from scraper.match_scraper import MatchScraper
@@ -97,4 +98,6 @@ if __name__ == '__main__':
     When this script is executed directly, the Flask server is launched
     with debugging enabled.
     """
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    
+    app.run(host="0.0.0.0", port=port)
