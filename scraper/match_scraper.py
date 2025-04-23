@@ -77,10 +77,11 @@ class MatchScraper:
 
                     if team1 and team2:
                         return {
-                            'match_url': f'{match_url}',
-                            'team1_url': f'{team1['href']}',
-                            'team2_url': f'{team2['href']}'   
-                        }
+                            "match_url": f"{match_url}",
+                            "team1_url": f"{team1['href']}",
+                            "team2_url": f"{team2['href']}"
+                        }               
+
         return {
             'match_url': 'Unknown',
             'team1_url': 'Unknown',
