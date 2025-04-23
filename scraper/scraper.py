@@ -26,4 +26,12 @@ class Scraper:
             BeautifulSoup: A BeautifulSoup object representing the parsed HTML content of the page.
         """
         response = self.scraper.get(url)
+        
+        if response.status_code != 200:
+            print(f"[ERRO] Status {response.status_code} ao acessar {url}")
+            return None
+
+        with open("/tmp/debug_page.html", "w", encoding="utf-8") as f:
+            f.write(response.text)
+            
         return BeautifulSoup(response.text, 'html.parser')
